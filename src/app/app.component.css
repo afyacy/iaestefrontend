@@ -1,21 +1,22 @@
 .hbg{
     background-color: #002138;
-}
-/* Bootstrap 4 text input with search icon */
-.has-search .form-control {
-    padding-left: 2.375rem;
+    font-family: "Montserrat", sans-serif;
 }
 
-.has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
+input:focus, textarea:focus, button:focus{
+  box-shadow: none;
+}
+
+.search-bar{
+  width: 258px;
+}
+.search-input{
+  border-radius: 5rem;
+}
+.search-button{
+  border-radius: 0rem 5rem 5rem 0rem;
+  background: #022F4E;
+  border: none;
 }
 
 /* Styles for footer */

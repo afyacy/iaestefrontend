@@ -1,37 +1,39 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light hbg">
-    <a class="navbar-brand" href="#">
-      <img src="assets/logo-iaeste.png" width="80%" height="80%" alt="iaeste-ghana-logo">
-    </a>
-    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav navbar-right mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link text-white" routerLink="/students">Students</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/employers">Employers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/contact">Contact</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <!-- <div class="input-group mr-sm-2">
-          <input type="text" class="form-control" placeholder="Search here...">
-          <div class="input-group-append">
-            <button class="btn btn-secondary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light hbg shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo-iaeste.png" width="70%" height="70%" alt="iaeste-ghana-logo">
+      </a>
+      <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-white" routerLink="/students">Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/employers">Employers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/contact">Contact</a>
+          </li>
+          <li class="nav-item search-bar">
+            <div class="input-group">
+              <input type="text" class="form-control search-input">
+              <div class="input-group-append">
+                  <button class="btn btn-secondary search-button" type="button">
+                      <i class="fa fa-search"></i> Search
+                  </button>
+              </div>
           </div>
-        </div> -->
-      </form>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
