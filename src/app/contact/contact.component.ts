@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { SendEmail } from '../send-email';
-import { SendEmailService } from '../send-email.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from "../http.service";
 
 
 @Component({
@@ -13,16 +10,29 @@ import { SendEmailService } from '../send-email.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  sendEmail: SendEmail[];
-  email: any;
+  loading = false;
+  buttionText = "Submit";
+  response = "";
+  user = <any>{};
   error = '';
   success = '';
+        
+  
+  nameFormControl = new FormControl("", [
+    Validators.required
+  ]);
+  emailFormControl = new FormControl("", [
+    Validators.required,
+    Validators.email
+  ]);
+  msgFormControl = new FormControl("", [
+    Validators.required
+  ]);
   
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private http: HttpClient,
-              private sendEmailService: SendEmailService) { }
+              public http: HttpService){ }
 
   msgForm: FormGroup;
 
@@ -32,26 +42,30 @@ export class ContactComponent implements OnInit {
       email: ['', Validators.required],
       msg: ['', Validators.required]
     });
+
+    console.log(this.http.test);
   }
 
   onSubmit(){
-    this.error = '';
-    this.success = '';
+    this.loading = true;
+    this.buttionText = "Submitting...";
 
-    this.sendEmailService.sendEmail(this.sendEmail)
-      .subscribe(
-        (res: SendEmail[]) => {
-          // Update the list of cars
-          this.sendEmail = res;
+    let user = {
+      name: this.nameFormControl.value,
+      email: this.emailFormControl.value,
+      msg: this.msgFormControl.value
+    }
 
-          // Inform the user
-          this.success = 'Created successfully';
-
-          // Reset the form
-          //msgForm.reset();
-        },
-        (err) => this.error = err
-      );
+    this.http.sendEmail(user).subscribe
+    (res => {
+      console.log(res);
+      this.response = res;
+    },
+    err => {
+      console.log(err);
+    }
+    );
+    
     }//End submit function
   
 
